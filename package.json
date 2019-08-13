@@ -1,0 +1,21 @@
+{
+  "name": "node-ecmascript",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Package to test ECMAScript in Node",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -r esm ./node-ECMAScript/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ECMAScript",
+    "Node"
+  ],
+  "author": "Alexander Sandoval",
+  "license": "MIT",
+  "dependencies": {
+    "esm": "^3.2.25",
+    "lodash": "^4.17.15"
+  }
+}
