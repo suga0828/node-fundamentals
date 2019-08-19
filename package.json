@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start:server": "node -r esm ./node-server/server.js",
+    "start:expressServer": "node -r esm ./node-server/expressServer.js",
     "start:ECMA": "node -r esm ./node-ECMAScript/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,7 +17,8 @@
   "author": "Alexander Sandoval",
   "license": "MIT",
   "dependencies": {
-    "esm": "^3.2.25"
+    "esm": "^3.2.25",
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "eslint": "^6.2.0"
