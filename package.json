@@ -5,7 +5,8 @@
   "description": "Package to test ECMAScript in Node",
   "main": "index.js",
   "scripts": {
-    "start": "node -r esm ./node-ECMAScript/index.js",
+    "start:server": "node -r esm ./node-server/server.js",
+    "start:ECMA": "node -r esm ./node-ECMAScript/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -15,7 +16,9 @@
   "author": "Alexander Sandoval",
   "license": "MIT",
   "dependencies": {
-    "esm": "^3.2.25",
-    "lodash": "^4.17.15"
+    "esm": "^3.2.25"
+  },
+  "devDependencies": {
+    "eslint": "^6.2.0"
   }
 }
