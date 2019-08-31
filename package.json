@@ -7,6 +7,7 @@
   "scripts": {
     "start:server": "node -r esm ./node-server/server.js",
     "start:expressServer": "node -r esm ./node-server/expressServer.js",
+    "dev:start:expressServer": "nodemon -r esm ./node-server/expressServer.js",
     "start:ECMA": "node -r esm ./node-ECMAScript/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,6 +22,7 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "eslint": "^6.2.0"
+    "eslint": "^6.2.0",
+    "nodemon": "^1.19.1"
   }
 }
