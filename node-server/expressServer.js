@@ -39,3 +39,16 @@ const main = async () => {
 };
 
 main();
+
+// Event emitter
+import EventEmitter from 'events';
+
+const eventEmitter = new EventEmitter();
+
+eventEmitter.on('change', () => {
+  console.log('Something has change');
+});
+
+setInterval(() => {
+  eventEmitter.emit('change');
+}, 1000);
