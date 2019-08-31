@@ -1,6 +1,7 @@
 import express from 'express';
 // Built in library
 import { exec } from 'child_process';
+import util, { log } from 'util';
 
 // Express server
 const server = express();
@@ -18,9 +19,23 @@ server.get('/favicon.*', (req, res) => {
 server.listen(3001);
 
 // Execute a command (callback based)
-exec('ls -B', (err, stdout, stderr) => {
-  if (err) {
+// exec('ls -B', (err, stdout, stderr) => {
+//   if (err) {
+//     throw error;
+//   }
+//   console.log(stdout);
+// });
+
+// Execute a command (promise based)
+const execP = util.promisify(exec);
+
+const main = async () => {
+  try {
+    const { stdout, stderr } = await execP('ls -B');
+    console.log(stdout);
+  } catch (error) {
     throw error;
   }
-  console.log(stdout);
-});
+};
+
+main();
