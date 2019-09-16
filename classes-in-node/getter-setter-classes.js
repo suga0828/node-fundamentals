@@ -1,7 +1,7 @@
 class Square {
-  constructor(side) {
-    this.width = side;
-    this.height = side;
+  constructor(_side) {
+    this.width = _side;
+    this.height = this.width;
     this.numOfRequestsArea = 0;
   }
 
