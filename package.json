@@ -5,7 +5,7 @@
   "description": "Package to test ECMAScript in Node",
   "main": "index.js",
   "scripts": {
-    "start": "node ./express-in-deep/app.js",
+    "start": "node app",
     "start:server": "node -r esm ./node-server/server.js",
     "dev:start:expressServer": "nodemon -r esm ./node-server/expressServer.js",
     "start:ECMA": "node -r esm ./node-ECMAScript/index.js",
@@ -18,11 +18,9 @@
   "author": "Alexander Sandoval",
   "license": "MIT",
   "dependencies": {
-    "esm": "^3.2.25",
+    "@hapi/joi": "^16.1.2",
+    "body-parser": "^1.19.0",
     "express": "^4.17.1"
   },
-  "devDependencies": {
-    "eslint": "^6.2.0",
-    "nodemon": "^1.19.1"
-  }
+  "devDependencies": {}
 }
