@@ -47,8 +47,12 @@ app.use('/public', express.static(path.join(__dirname, 'static')));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({}));
+app.use('/middleware', (req, res, next) => {
+  req.banana = 'banana';
+  next();
+});
 
-app.get('/:userQuery', (req, res) => {
+app.get('/search/:userQuery', (req, res) => {
   res.render('index', {
     data: {
       loggedIn: false,
@@ -58,10 +62,14 @@ app.get('/:userQuery', (req, res) => {
     }
   });
 });
-
+app.get('/middleware', (req, res) => {
+  console.log(req.banana);
+  res.send('middleware');
+});
 app.get('/contact.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'static', 'contact.html'));
 });
+
 app.post('/', (req, res) => {});
 
 app.listen(port, () => console.log(`App listening on port ${port}!`));
