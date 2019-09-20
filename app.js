@@ -42,14 +42,21 @@ const schema = Joi.object({
 });
 
 const result = schema.validate(userInput);
-console.log(result);
 
 app.use('/public', express.static(path.join(__dirname, 'static')));
+app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({}));
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'static', 'index.html'));
+app.get('/:userQuery', (req, res) => {
+  res.render('index', {
+    data: {
+      loggedIn: false,
+      username: '',
+      userQuery: req.params.userQuery,
+      searchResults: ['banana1', 'banana2', 'banana3']
+    }
+  });
 });
 
 app.get('/contact.html', (req, res) => {
