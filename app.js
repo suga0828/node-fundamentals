@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const Joi = require('@hapi/joi');
 const bodyParser = require('body-parser');
+const people = require('./routes/people');
 
 const app = express();
 const port = 3000;
@@ -51,6 +52,7 @@ app.use('/middleware', (req, res, next) => {
   req.banana = 'banana';
   next();
 });
+app.use('/people', people);
 
 app.get('/search/:userQuery', (req, res) => {
   res.render('index', {
